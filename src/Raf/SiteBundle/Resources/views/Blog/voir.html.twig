@@ -1,0 +1,46 @@
+{# src/Raf/SiteBundle/Resources/views/Blog/voir.html.twig #}
+ 
+{% extends "RafSiteBundle::layout.html.twig" %}
+ 
+{% block title %}
+    Lecture d'un article - {{ parent() }}
+{% endblock %}
+ 
+{% block rafsite_body %}
+ 
+   {% include "RafSiteBundle:Blog:article.html.twig" %}
+
+  <div class="well">
+    <h3>Commentaires</h3>
+    {% for commentaire in liste_commentaires %}
+      <p>{{ commentaire.auteur }} <br/> {{ commentaire.contenu }}</p>
+    {% endfor %}
+  </div>
+
+ {% if liste_articleCompetence|length > 0 %}
+    <div>
+      Compétences utilisées dans cet article :
+      <ul>
+        {% for articleCompetence in liste_articleCompetence %}
+          <li>{{ articleCompetence.competence.nom }} : {{ articleCompetence.niveau }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+ 
+  <p>
+    <a href="{{ path('rafsite_accueil') }}" class="btn">
+      <i class="icon-chevron-left"></i>
+      Retour à la liste
+    </a>
+    <a href="{{ path('rafsite_modifier', {'id': article.id}) }}" class="btn">
+      <i class="icon-edit"></i>
+      Modifier l'article
+    </a>
+    <a href="{{ path('rafsite_supprimer', {'id': article.id}) }}" class="btn">
+      <i class="icon-trash"></i>
+      Supprimer l'article
+    </a>
+  </p>
+ 
+{% endblock %}

@@ -1,0 +1,33 @@
+[Mon May 06 19:11:15 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/_wdt, referer: http://dev.raf.local/
+[Mon May 06 19:11:19 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/_profiler, referer: http://dev.raf.local/
+[Mon May 06 19:17:37 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/bundles/framework/images/input_bg.gif, referer: http://dev.raf.local/app_dev.php/_configurator/step/0
+[Tue May 07 08:51:51 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/app_dev.phpp
+[Tue May 07 09:21:23 2013] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected 'array' (T_ARRAY) in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 16
+[Mon May 20 18:10:46 2013] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Raf\\SiteBundle\\Controller\\Article' not found in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 71
+[Tue May 21 09:43:54 2013] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Raf\\SiteBundle\\Controller\\Image' not found in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 85
+[Tue May 21 09:58:34 2013] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Raf\\SiteBundle\\Controller\\Commentaire' not found in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 99
+[Tue May 21 09:58:46 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Commentaire::setArticle() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 110
+[Tue May 21 10:00:01 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 74
+[Tue May 21 10:00:10 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 74
+[Tue May 21 10:00:25 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 74
+[Tue May 21 10:00:49 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 74
+[Tue May 21 10:00:51 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 74
+[Tue May 21 10:36:29 2013] [error] [client 127.0.0.1] PHP Fatal error:  Cannot redeclare Raf\\SiteBundle\\Controller\\BlogController::supprimerAction() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 196
+[Tue May 21 10:40:06 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 153
+[Tue May 21 10:41:10 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::addCategorie() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 162
+[Tue May 21 10:41:53 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::addCategorie() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 163
+[Tue May 21 10:42:45 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::addCategorie() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 168
+[Tue May 21 10:43:20 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::addCategorie() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 168
+[Tue May 21 10:43:55 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::addCategorie() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 168
+[Tue May 21 10:59:38 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 124
+[Tue May 21 10:59:53 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 125
+[Tue May 21 11:00:11 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRepository() on a non-object in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 125
+[Tue May 21 12:00:34 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::flush() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 354
+[Tue May 21 13:54:46 2013] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '.', expecting ')' in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 28
+[Wed May 22 09:30:04 2013] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Raf\\SiteBundle\\Controller\\ArticleType' not found in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 63
+[Wed May 22 09:30:44 2013] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ',' in /var/www/raf/src/Raf/SiteBundle/Form/ArticleType.php on line 18
+[Wed May 22 09:33:23 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/url, referer: http://dev.raf.local/app_dev.php/blog/article/9
+[Wed May 22 10:19:47 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/zip, referer: http://dev.raf.local/app_dev.php/blog/article/10
+[Wed May 22 10:21:36 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Raf\\SiteBundle\\Entity\\Article::remove() in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 154, referer: http://dev.raf.local/app_dev.php/blog/article/10
+[Wed May 22 10:22:10 2013] [error] [client 127.0.0.1] File does not exist: /var/www/raf/web/url, referer: http://dev.raf.local/app_dev.php/blog
+[Wed May 22 10:55:40 2013] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Raf\\SiteBundle\\Controller\\Response' not found in /var/www/raf/src/Raf/SiteBundle/Controller/BlogController.php on line 194

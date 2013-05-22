@@ -1,0 +1,19 @@
+{# src/Raf/SiteBundle/Resources/views/Blog/ajouter.html.twig #}
+ 
+{% extends "RafSiteBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Ajouter un article - {{ parent() }}
+{% endblock %}
+ 
+{% block rafsite_body %}
+ 
+  <h2>Ajouter un article</h2>
+ 
+  {% include "RafSiteBundle:Blog:formulaire.html.twig" %}
+ 
+  <p>
+    Vous ajoutez un nouvel article.
+  </p>
+ 
+{% endblock %}

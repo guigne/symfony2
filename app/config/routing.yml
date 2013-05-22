@@ -1,0 +1,4 @@
+raf_site:
+    resource: "@RafSiteBundle/Resources/config/routing.yml"
+    prefix:    /blog
+

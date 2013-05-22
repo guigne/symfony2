@@ -1,0 +1,37 @@
+rafsite_accueil:
+    path:         /{page}
+    defaults:     { _controller: RafSiteBundle:Blog:index, page: 1 }
+    requirements:
+        page: \d*
+     
+rafsite_voir:
+    path:      /article/{id}
+    defaults:  { _controller: RafSiteBundle:Blog:voir }
+     
+rafsite_ajouter:
+    path:      /ajouter
+    defaults:  { _controller: RafSiteBundle:Blog:ajouter }
+ 
+rafsite_modifier:
+    path:      /modifier/{id}
+    defaults:  { _controller: RafSiteBundle:Blog:modifier }
+    requirements:
+        id:  \d+
+ 
+rafsite_supprimer:
+    path:      /supprimer/{id}
+    defaults:  { _controller: RafSiteBundle:Blog:supprimer }
+    requirements:
+        id:  \d+
+
+rafsite_test:
+    path:      /test/update
+    defaults:  { _controller: RafSiteBundle:Blog:test }
+
+# Test à conserver pr rappel
+rafsite_voir_slug:
+    path:     /{annee}/{slug}.{_format}
+    defaults: { _controller: RafSiteBundle:Blog:voirSlug, _format: html }
+    requirements:
+        annee:  \d{4}
+        _format: html|xml
