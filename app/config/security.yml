@@ -5,38 +5,49 @@ jms_security_extra:
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        Raf\UserBundle\Entity\User: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]       # Un admin hérite des droits d'auteur et de modérateur
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        # Memory est le provider pr les utilisateurs de ce fichier de conf
         in_memory:
             memory:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        # Et voici notre nouveau fournisseur :
+        main:
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/demo/secured/
+        main:
+            pattern:   ^/
+            anonymous: true
+            provider:  main
             form_login:
-                check_path: _security_check
-                login_path: _demo_login
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path:   _demo_logout
-                target: _demo
+                path:       fos_user_security_logout
+                target: /blog
+            remember_me:
+                key:        %secret% # %secret% est un paramètre de parameters.yml
+
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
+        # Pour sécuriser tout un panel d'admin
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        # ou par IP et par Canal
+        #- { path: ^/admin, roles: ROLE_ADMIN, ip: 127.0.0.1, requires_channel: https }
+
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

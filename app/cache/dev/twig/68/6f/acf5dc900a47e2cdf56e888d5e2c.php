@@ -46,31 +46,58 @@ class __TwigTemplate_686facf5dc900a47e2cdf56e888d5e2c extends Twig_Template
           Lire le tutoriel »
         </a></p>
       </div>
- 
+
+      ";
+        // line 25
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 26
+            echo "          Connecté en tant que ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "username"), "html", null, true);
+            echo " - <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("fos_user_security_logout"), "html", null, true);
+            echo "\">Déconnexion</a>
+      ";
+        } else {
+            // line 28
+            echo "          <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("fos_user_security_login"), "html", null, true);
+            echo "\">Connexion</a>
+      ";
+        }
+        // line 30
+        echo " 
       <div class=\"row\">
         <div id=\"menu\" class=\"span3\">
           <h3>Le blog</h3>
           <ul class=\"nav nav-pills nav-stacked\">
             <li><a href=\"";
-        // line 29
+        // line 35
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("rafsite_accueil"), "html", null, true);
         echo "\">Accueil du blog</a></li>
-            <li><a href=\"";
-        // line 30
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("rafsite_ajouter"), "html", null, true);
-        echo "\">Ajouter un article</a></li>
-          </ul>
+
+            ";
+        // line 39
+        echo "            ";
+        if ($this->env->getExtension('security')->isGranted("ROLE_AUTEUR")) {
+            // line 40
+            echo "              <li><a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("rafsite_ajouter"), "html", null, true);
+            echo "\">Ajouter un article</a></li>
+            ";
+        }
+        // line 42
+        echo "          </ul>
                      
           ";
-        // line 33
+        // line 44
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("RafSiteBundle:Blog:menu", array("nombre" => 3)));
         echo "
         </div>
         <div id=\"content\" class=\"span9\">
           ";
-        // line 36
+        // line 47
         $this->displayBlock('body', $context, $blocks);
-        // line 38
+        // line 49
         echo "        </div>
       </div>
  
@@ -82,9 +109,9 @@ class __TwigTemplate_686facf5dc900a47e2cdf56e888d5e2c extends Twig_Template
     </div>
  
   ";
-        // line 48
+        // line 59
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 53
+        // line 63
         echo " 
   </body>
 </html>";
@@ -106,22 +133,20 @@ class __TwigTemplate_686facf5dc900a47e2cdf56e888d5e2c extends Twig_Template
     ";
     }
 
-    // line 36
+    // line 47
     public function block_body($context, array $blocks = array())
     {
-        // line 37
+        // line 48
         echo "          ";
     }
 
-    // line 48
+    // line 59
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 49
-        echo "    ";
-        // line 50
+        // line 60
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 51
+        // line 61
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
         echo "\"></script>
   ";
@@ -139,6 +164,6 @@ class __TwigTemplate_686facf5dc900a47e2cdf56e888d5e2c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  125 => 51,  122 => 50,  120 => 49,  117 => 48,  113 => 37,  103 => 11,  100 => 10,  94 => 8,  88 => 53,  86 => 48,  72 => 36,  38 => 13,  36 => 10,  31 => 8,  23 => 2,  63 => 18,  60 => 30,  55 => 19,  52 => 17,  46 => 12,  43 => 10,  40 => 9,  33 => 6,  30 => 5,  110 => 36,  99 => 29,  92 => 28,  87 => 27,  81 => 22,  74 => 38,  66 => 33,  62 => 16,  56 => 29,  53 => 14,  48 => 13,  42 => 9,  39 => 8,  32 => 5,  29 => 4,);
+        return array (  150 => 61,  147 => 60,  144 => 59,  140 => 48,  137 => 47,  130 => 11,  127 => 10,  121 => 8,  115 => 63,  113 => 59,  101 => 49,  99 => 47,  93 => 44,  89 => 42,  83 => 40,  80 => 39,  75 => 35,  68 => 30,  62 => 28,  54 => 26,  52 => 25,  38 => 13,  36 => 10,  31 => 8,  23 => 2,);
     }
 }

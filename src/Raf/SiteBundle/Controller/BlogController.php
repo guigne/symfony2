@@ -9,6 +9,11 @@ use Raf\SiteBundle\Entity\Article;
 use Raf\SiteBundle\Form\ArticleType;
 use Raf\SiteBundle\Form\ArticleEditType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
+// Plus besoin de rajouter le use de l'exception dans ce cas
+// Mais par contre il faut le use pour les annotations du bundle :
+use JMS\SecurityExtraBundle\Annotation\Secure;
  
 class BlogController extends Controller
 {
@@ -58,8 +63,20 @@ class BlogController extends Controller
     ));
   }
  
+  /**
+   * @Secure(roles="ROLE_AUTEUR")
+   */ 
   public function ajouterAction()
   {
+    // Plus besoin du if avec le security.context, l'annotation s'occupe de tout ! Annotation ci-dessus
+    // Dans cette méthode, vous êtes sûrs que l'utilisateur courant dispose du rôle ROLE_AUTEUR
+
+    // On teste que l'utilisateur dispose bien du rôle ROLE_AUTEUR
+    if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
+      // Sinon on déclenche une exception « Accès interdit »
+      throw new AccessDeniedHttpException('Accès limité aux auteurs');
+    }
+
     $article = new Article;
  
     // On crée le formulaire grâce à l'ArticleType

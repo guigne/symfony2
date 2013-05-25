@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 // On rajoute ce use pour le context :
 use Symfony\Component\Validator\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Raf\SiteBundle\Validator\Antiflood;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -50,7 +50,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255, unique="true")
+     * @ORM\Column(name="titre", type="string", length=255, unique=true)
      * @Assert\MinLength(10)
      */
     private $titre;

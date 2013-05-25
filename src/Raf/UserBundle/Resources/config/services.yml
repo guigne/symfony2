@@ -1,0 +1,7 @@
+parameters:
+#    raf_user.example.class: Raf\UserBundle\Example
+
+services:
+#    raf_user.example:
+#        class: %raf_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -11,7 +11,7 @@ parameters:
     mailer_user:       r.guigne@gmail.com
     mailer_password:   PWD:raph
 
-    locale:            en
+    locale:            fr
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     app_webmaster: moi-même
