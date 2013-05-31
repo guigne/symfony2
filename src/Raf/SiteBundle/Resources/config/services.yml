@@ -8,7 +8,11 @@ services:
 
     raf_site.antispam:
         class: Raf\SiteBundle\Antispam\RafAntispam
-        arguments: [@mailer, %locale%, 3]
+        arguments: [@mailer, 3]
+        tags:
+            -  { name: twig.extension }
+        calls:
+            -  [ setLocale, [ %locale% ] ]
 
     raf_site.validator.antiflood:                            # Le nom du service
         class: Raf\SiteBundle\Validator\AntiFloodValidator   # La classe du service, ici notre validateur déjà créé
@@ -16,3 +20,20 @@ services:
         scope: request                                       # Comme on injecte la requête, on doit préciser ce scope
         tags:
             - { name: validator.constraint_validator, alias: raf_site_antiflood }  # C'est avec l'alias qu'on retrouvera le service
+
+    raf_site.ckeditor:
+        class: Raf\SiteBundle\Form\Type\CkeditorType
+        tags:
+            - { name: form.type, alias: ckeditor }
+
+    raf_site.beta_listener:
+        class: Raf\SiteBundle\Beta\BetaListener
+        arguments: ["2013-08-19"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    raf_site.censure_listener:
+        class: Raf\SiteBundle\Bigbrother\CensureListener
+        arguments: [[1, 2], @mailer]
+        tags:
+            - { name: kernel.event_listener, event: raf_site.bigbrother.post_message, method: onMessagePost }

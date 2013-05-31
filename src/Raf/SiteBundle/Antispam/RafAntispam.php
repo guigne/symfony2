@@ -3,17 +3,40 @@
  
 namespace Raf\SiteBundle\Antispam;
  
-class RafAntispam
+class RafAntispam extends \Twig_Extension
 {
   protected $mailer;
   protected $locale;
   protected $nbForSpam;
  
-  public function __construct(\Swift_Mailer $mailer, $locale, $nbForSpam)
+  public function __construct(\Swift_Mailer $mailer, $nbForSpam)
   {
     $this->mailer    = $mailer;
-    $this->locale    = $locale;
     $this->nbForSpam = (int) $nbForSpam;
+  }
+
+  /*
+   * Twig va exécuter cette méthode pour savoir quelle(s) fonction(s) ajoute notre service
+   */
+  public function getFunctions()
+  {
+    return array(
+      'checkIfSpam' => new \Twig_Function_Method($this, 'isSpam')
+    );
+  }
+
+  /*
+   * La méthode getName() identifie votre extension Twig, elle est obligatoire
+   */
+  public function getName()
+  {
+    return 'RafAntispam';
+  }
+
+  // Et on ajoute un setter
+  public function setLocale($locale)
+  {
+    $this->locale = $locale;
   }
  
   /**
